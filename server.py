@@ -7,6 +7,20 @@ from repository import Repository
 
 app = FastAPI(title="Neighbor API")
 
+@app.get("/")
+async def root_get() -> List[str]:
+    return [
+    "Welcome to",
+    "██████╗   █████╗  ██████╗  ██╗  ██╗ ███████╗ ██████╗",
+    "██╔══██╗ ██╔══██╗ ██╔══██╗ ██║ ██╔╝ ██╔════╝ ██╔══██╗",
+    "██████╔╝ ███████║ ██████╔╝ █████╔╝  █████╗   ██████╔╝",
+    "██╔═══╝  ██╔══██║ ██╔═██╗  ██╔═██╗  ██╔══╝   ██╔══██╗",
+    "██║      ██║  ██║ ██║  ██╗ ██║  ██╗ ███████╗ ██║  ██║",
+    "╚═╝      ╚═╝  ╚═╝ ╚═╝  ╚═╝ ╚═╝  ╚═╝ ╚══════╝ ╚═╝  ╚═╝",
+    "try a post request instead ;)"
+    ]
+
+
 @app.post("/")
 async def root(vehicles: VehicleEntryList) -> List[dict]:
     searchService = SearchService(Repository())
